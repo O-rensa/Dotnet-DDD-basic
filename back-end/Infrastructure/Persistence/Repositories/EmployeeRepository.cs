@@ -27,7 +27,7 @@ namespace Infrastructure.Persistence.Repositories
 
             if (employee is not null)
             {
-                employee = new Employee(payload.Id, payload.Name, payload.Email, payload.Age);
+                employee.UpdateEmployee(payload);
             }
 
             return (employee is not null);
@@ -45,14 +45,14 @@ namespace Infrastructure.Persistence.Repositories
 
         public async Task<IEnumerable<EmployeeReadModel>> GetAllEmployees()
         {
-            var result = await _db.Employees.Select(e => new EmployeeReadModel(e.Id, e.Name, e.Email, e.Age)).ToListAsync();
+            var result = await _db.Employees.ToListAsync();
 
-            return result.AsReadOnly();
+            return result.AsReadOnly().Select(e => new EmployeeReadModel(e.Id, e.Name, e.Email, e.Age));
         }
 
         public async Task<EmployeeReadModel?> GetByEmployeeId(EmployeeId id)
         {
-            var employee = await _db.Employees.FirstOrDefaultAsync();
+            var employee = await _db.Employees.FirstOrDefaultAsync(e => e.Id == id);
 
             if (employee is not null)
             {

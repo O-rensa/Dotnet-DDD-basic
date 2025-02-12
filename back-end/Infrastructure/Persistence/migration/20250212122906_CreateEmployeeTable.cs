@@ -16,9 +16,9 @@ namespace Infrastructure.persistence.migration
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name_FName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Name_MName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Name_LName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name_Lastname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name_Firstname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name_Middlename = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false)
                 },

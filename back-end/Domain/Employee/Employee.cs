@@ -2,6 +2,8 @@
 {
     public class Employee
     {
+        public Employee() { }
+
         public Employee(EmployeeId id, EmployeeName name, string email, int age)
         {
             Id = id;
@@ -17,5 +19,13 @@
         public string Email { get; private set; } = string.Empty;
 
         public int Age { get; private set; }
+
+        public void UpdateEmployee(Employee updates)
+        {
+            Id = updates.Id;
+            Name = updates.Name;
+            Email = updates.Email;
+            Age = updates.Age;
+        }
     }
 }

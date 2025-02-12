@@ -19,9 +19,9 @@ namespace Infrastructure.Persistence.Configurations
 
             builder.OwnsOne(e => e.Name, nameBuilder =>
             {
-                nameBuilder.Property(n => n.FName).IsRequired();
+                nameBuilder.Property(n => n.Firstname).IsRequired();
 
-                nameBuilder.Property(n => n.LName).IsRequired();
+                nameBuilder.Property(n => n.Lastname).IsRequired();
             });
 
             builder.Property(e => e.Email).IsRequired();

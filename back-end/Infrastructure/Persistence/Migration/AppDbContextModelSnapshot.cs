@@ -49,15 +49,15 @@ namespace Infrastructure.persistence.migration
                             b1.Property<Guid>("EmployeeId")
                                 .HasColumnType("uniqueidentifier");
 
-                            b1.Property<string>("FName")
+                            b1.Property<string>("Firstname")
                                 .IsRequired()
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<string>("LName")
+                            b1.Property<string>("Lastname")
                                 .IsRequired()
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<string>("MName")
+                            b1.Property<string>("Middlename")
                                 .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("EmployeeId");

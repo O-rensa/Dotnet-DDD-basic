@@ -1,4 +1,5 @@
-﻿using Domain.Options;
+﻿using Application;
+using Domain.Options;
 using Domain.Repositories;
 using Infrastructure.Persistence;
 using Infrastructure.Persistence.Repositories;
@@ -20,6 +21,8 @@ namespace Infrastructure
             });
 
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
         }
